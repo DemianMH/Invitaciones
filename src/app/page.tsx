@@ -179,7 +179,7 @@ export default function Page() {
           className="my-16 p-6 md:p-10 bg-[#e0c2a7] rounded-xl shadow-lg text-[#4a2c2a]"
         >
           <h2 className="text-4xl font-bold mb-6">¿Cuándo y Dónde?</h2>
-          <p className="text-2xl mb-4 font-semibold">¡Sábado, 2 de Noviembre de 2025!</p>
+          <p className="text-2xl mb-4 font-semibold">¡Domingo, 2 de Noviembre de 2025!</p>
           <a
             href="https://share.google/eXB9G62PcteF7huuD"
             target="_blank"
