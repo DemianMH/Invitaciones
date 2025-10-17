@@ -4,6 +4,15 @@ import { useState, useEffect } from 'react';
 import Countdown from 'react-countdown';
 import { motion } from 'framer-motion';
 
+// Definimos una interfaz para los props que recibe la función renderer
+interface CountdownRenderProps {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  completed: boolean;
+}
+
 const BirthdayCountdown = () => {
   const [isClient, setIsClient] = useState(false);
 
@@ -13,7 +22,8 @@ const BirthdayCountdown = () => {
 
   const birthdayDate = new Date('2025-11-02T17:00:00'); 
 
-  const renderer = ({ days, hours, minutes, seconds, completed }: any) => {
+  // Usamos la interfaz que definimos en lugar de 'any'
+  const renderer = ({ days, hours, minutes, seconds, completed }: CountdownRenderProps) => {
     if (completed) {
       return <span className="text-3xl md:text-4xl font-bold text-yellow-200">¡El gran día ha llegado!</span>;
     } else {
