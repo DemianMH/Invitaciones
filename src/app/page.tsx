@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { FaMapMarkerAlt, FaWhatsapp, FaPause, FaPlay } from 'react-icons/fa';
+import { GiCowboyBoot } from 'react-icons/gi'; // <-- 1. IMPORTAMOS EL NUEVO ICONO
 import BirthdayCountdown from '@/components/Countdown';
 import Itinerary from '@/components/Itinerary';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -15,12 +16,10 @@ export default function Page() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   
-  // Nuevo estado para la pantalla de bienvenida
   const [showWelcome, setShowWelcome] = useState(true);
 
-  // Función para entrar a la invitación y activar la música
   const handleEnter = () => {
-    setShowWelcome(false); // Oculta la pantalla de bienvenida
+    setShowWelcome(false);
     if (audioRef.current) {
       audioRef.current.play().catch(error => console.log("Error al reproducir audio:", error));
       setIsPlaying(true);
@@ -42,7 +41,6 @@ export default function Page() {
     <>
       <audio ref={audioRef} src="/musica_vaquera.mp3" loop preload="auto" />
 
-      {/* Pantalla de Bienvenida */}
       <AnimatePresence>
         {showWelcome && (
           <motion.div
@@ -65,7 +63,6 @@ export default function Page() {
         )}
       </AnimatePresence>
       
-      {/* Botón de música (solo visible después de entrar) */}
       {!showWelcome && (
           <motion.button
             className="fixed bottom-4 right-4 bg-[#8B4513] text-white p-3 rounded-full shadow-lg z-50 hover:bg-[#A0522D] transition-colors"
@@ -79,7 +76,6 @@ export default function Page() {
           </motion.button>
       )}
 
-      {/* Contenido principal de la invitación */}
       <div className="relative min-h-screen flex flex-col items-center justify-center text-white overflow-hidden">
         <Image
           src="/images/hero-banner-vaquero.jpg"
@@ -119,7 +115,6 @@ export default function Page() {
       </div>
 
       <main className="container mx-auto p-4 md:p-8 text-center relative z-20 bg-wood-pattern">
-        {/* El resto del código de tu invitación sigue aquí... */}
         <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -171,6 +166,38 @@ export default function Page() {
             <Image src="/images/lazo-divisor.png" alt="Divisor de Lazo" width={150} height={50} objectFit="contain" />
         </motion.div>
 
+        {/* ================================================================== */}
+        {/* ▼▼▼ 2. AQUÍ ESTÁ LA NUEVA SECCIÓN DE CÓDIGO DE VESTIMENTA ▼▼▼ */}
+        {/* ================================================================== */}
+        <motion.section
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.8 }}
+          className="my-16 p-6 md:p-10 bg-white rounded-2xl shadow-xl border-4 border-[#A0522D] text-[#4a2c2a]"
+        >
+          <h2 className="text-4xl font-bold mb-6">Código de Vestimenta</h2>
+          <div className="flex justify-center mb-4">
+            <GiCowboyBoot size={60} className="text-[#8B4513]" />
+          </div>
+          <p className="text-2xl font-semibold text-[#8B4513] drop-shadow-sm">
+            ¡Vestimenta Vaquera Obligatoria!
+          </p>
+          <p className="mt-4 text-lg">
+            Para que la celebración sea inolvidable, te pedimos que vengas con tu mejor atuendo vaquero. ¡No olvides tus botas y sombrero!
+          </p>
+        </motion.section>
+
+        <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.8 }}
+            transition={{ duration: 0.5 }}
+            className="my-10 flex justify-center"
+        >
+            <Image src="/images/lazo-divisor.png" alt="Divisor de Lazo" width={150} height={50} objectFit="contain" />
+        </motion.div>
+        
         <motion.section
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
