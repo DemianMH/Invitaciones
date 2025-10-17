@@ -1,42 +1,29 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #f5f5dc; /* Un fondo color crema/beige */
+  color: #4a2c2a; /* Un color café oscuro para el texto */
+  font-family: 'Georgia', serif; /* Una fuente con serifa para un toque clásico */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Animación de zoom para la imagen de fondo */
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+.animate-zoom-in {
+  animation: zoomIn 15s ease-in-out infinite alternate;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* Clase para el fondo de textura de madera */
+.bg-wood-pattern {
+  background-image: url('/images/madera-fondo.jpg');
+  background-repeat: repeat; /* Hace que la imagen se repita como un patrón */
 }
