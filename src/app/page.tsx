@@ -48,8 +48,7 @@ export default function Page() {
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 1 } }}
-            className="fixed inset-0 bg-black bg-opacity-80 z-[100] flex flex-col items-center justify-center text-white"
-          >
+            className="fixed inset-0 bg-black bg-opacity-80 z-[100] flex flex-col items-center justify-center text-white">
             <div className="text-center p-8">
               <h1 className="text-5xl md:text-7xl font-bold font-serif mb-4 text-yellow-300">¡Estás Invitado!</h1>
               <p className="text-xl md:text-2xl mb-8">Al cumpleaños de César Adrián</p>
